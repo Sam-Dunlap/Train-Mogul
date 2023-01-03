@@ -1080,7 +1080,6 @@ scale = Vector2( 0.0515873, 0.0506608 )
 texture = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="PortlandOR17"]
-visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 script = ExtResource( 3 )

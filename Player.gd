@@ -58,6 +58,10 @@ func on_rdScreen_city_chosen(region, city, isHomeCityRoll = false):
 	emit_signal("destination_rolled", city)
 
 func check_move_path_for_retracing(path: Array) -> bool:
+#	for i in visitedThisTrip:
+#		print("these are visitedThisTrip", i.name)
+#	for i in path:
+#		print("these are path", i.name)
 	for desired_milepost in path:
 		for previously_visited_milepost in visitedThisTrip:
 			if desired_milepost == previously_visited_milepost:
@@ -65,6 +69,7 @@ func check_move_path_for_retracing(path: Array) -> bool:
 	return false
 
 func move(path: Array): # path is Nodes
+	print("PLAYER CURRENT STOP: ", currentStop)
 	var x = 0
 	if check_move_path_for_retracing(path):
 		print('bad')
@@ -94,31 +99,26 @@ func arrived_at_destination():
 	visitedThisTrip = []
 
 func get_roads_in_adj_list(from_stop: Array, to_stop: String):
-	print(from_stop)
-	print(to_stop)
 	for dict in from_stop:
 		if dict.name == to_stop:
-			roadsThisTurn.append(dict.roads)
+			roadsThisTurn.append(dict.roads.duplicate(true))
 
 func clean_up_turn():
 	emit_signal("turn_finished")
-	pay(calculate_turn_cost(1, roadsThisTurn))
+	pay(calculate_turn_cost(roadsThisTurn))
 	roadsThisTurn = []
 
-func calculate_turn_cost(minCost, rtt):
+func calculate_turn_cost(rtt: Array, minCost: int = 1) -> int:
 	var addCost = false
 	while rtt[0].empty():
 		addCost = true
 		rtt.remove(0)
 	if addCost:
 		minCost += 1
-	print(rtt)
-	print(minCost)
 	while !rtt[0].empty():
 		if search_for_cheapest_path(rtt[0][0], rtt):
-			print(minCost)
 			return minCost
-	var outputCost = calculate_turn_cost(minCost, rtt)
+	var outputCost = calculate_turn_cost(rtt, minCost)
 	return outputCost
 
 
@@ -126,7 +126,7 @@ func search_for_cheapest_path(currentRoad: String, rtt: Array) -> bool:
 	for arr in rtt:
 		if arr.find(currentRoad) == -1:
 			return false
-		rtt[rtt.find(arr)].erase(currentRoad)
+		rtt[rtt.find(arr)].clear()
 	return true
 
 func pay(cost, _paidTo = -1): # paidTo should be used later

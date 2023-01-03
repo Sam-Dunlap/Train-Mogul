@@ -127,7 +127,6 @@ func on_purchase_button_pressed(railroad: Dictionary, confirm: bool):
 	if confirm:
 		emit_signal("purchase_confirmed", railroad)
 		add_destination_roll_screen()
-		toggle_hud()
 		return
 	var purchaseMenu = load("PurchaseMenu.tscn").instance()
 	add_child(purchaseMenu)

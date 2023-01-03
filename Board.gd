@@ -21,8 +21,8 @@ class BoardGraph:
 	
 	func make_graph(list , board : Node2D):
 		var stops = list.keys()
-		for i in stops.size():
-			add_point(get_available_point_id(), board.get_node(stops[i]).position)
+		for milepost in stops:
+			add_point(get_available_point_id(), board.get_node(milepost).position)
 		for j in stops.size():
 			for neighbor in list.get(stops[j]):
 				var neighborIdx = stops.find(neighbor.name)
@@ -47,7 +47,6 @@ func open_init_settings_menu():
 	add_child(setupMenu)
 
 func on_setup_menu_closing(playerCount):
-	print(playerCount)
 	open_start_menu(playerCount)
 
 # fires from ready, instances start menu, then fires add_player when user enters
@@ -77,10 +76,10 @@ func determine_destination(playerInstance, initializing = false):
 	var rdScreen = load("res://RollDestinationScreen.tscn").instance()
 	add_child(rdScreen)
 	rdScreen.connect("city_chosen", playerInstance, "on_rdScreen_city_chosen")
-	var rdButton = rdScreen.rdButton
+	#var rdButton = rdScreen.rdButton
 	if initializing:
-		var home = rdButton.roll(true)
-		playerInstance.home = convert_stop(home, TYPE_OBJECT)
+		#var home = rdButton.roll(true)
+		playerInstance.home = convert_stop("Reno", TYPE_OBJECT)
 
 func _connect_player_signals(instance):
 	instance.connect("tree_entered", instance, "_initialized")

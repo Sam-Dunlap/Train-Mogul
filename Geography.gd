@@ -2095,10 +2095,7 @@ var payoutChart = [['-', '10.0', '3.5', '21.0', '11.0', '2.0', '3.0', '23.5', '1
 var alpha_cities = ["Albany", "Atlanta", "Baltimore", "Billings", "Birmingham", "Boston", "Buffalo", "Butte", "Casper", "Charleston", "Charlotte", "Chattanooga", "Chicago", "Cincinnati", "Cleveland", "Columbus", "Dallas", "Denver", "Des Moines", "Detroit", "El Paso", "Fargo", "Fort Worth", "Houston", "Indianapolis", "Jacksonville", "Kansas City", "Knoxville", "Las Vegas", "Little Rock", "Los Angeles", "Louisville", "Memphis", "Miami", "Milwaukee", "Minneapolis-St Paul", "Mobile", "Nashville", "New Orleans", "New York", "Norfolk", "Oklahoma City", "Omaha", "Philadelphia", "Phoenix", "Pittsburgh", "Pocatello", "Portland ME", "Portland OR", "Pueblo", "Rapid City", "Reno", "Richmond", "Sacramento", "Salt Lake City", "San Antonio", "San Diego", "San Francisco-Oakland", "Seattle", "Shreveport", "Spokane", "St Louis", "Tampa", "Tucumcari", "Washington DC"]
 
 func calculate_payout(startTrip, destination):
-	print("in calculate_payout")
-	print(startTrip, destination)
 	var startPosition = alpha_cities.find(startTrip)
 	var startPosPayouts = payoutChart[startPosition]
-	print(startPosPayouts)
 	var payout = float(startPosPayouts[alpha_cities.find(destination)])
 	return payout

@@ -14,4 +14,4 @@ func roll():
 	var dieTwo = (randi() % 6 + 1)
 	var total = dieOne + dieTwo
 	print(total)
-	emit_signal("rolled", total)
+	emit_signal("rolled", 6)
