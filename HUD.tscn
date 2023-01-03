@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://HUD.gd" type="Script" id=1]
-[ext_resource path="res://Roll.gd" type="Script" id=2]
-[ext_resource path="res://RailroadMenuPopup.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Roll.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/RailroadMenuPopup.gd" type="Script" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )

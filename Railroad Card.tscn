@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Railroad Card.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Railroad Card.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Silkscreen-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ButtonHeightContainer.gd" type="Script" id=3]
-[ext_resource path="res://TopButtonMargin.gd" type="Script" id=4]
-[ext_resource path="res://LeftMargin.gd" type="Script" id=5]
-[ext_resource path="res://PurchaseButton.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/ButtonHeightContainer.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/TopButtonMargin.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/LeftMargin.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/PurchaseButton.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
