@@ -22,7 +22,7 @@ If you are interested in this project or any others I am working on, feel free t
 
 Train Mogul uses the [Dicebag-Godot](https://github.com/Yagich/dicebag-godot) asset by [Yagich](https://github.com/Yagich). The license notice for Dicebag-Godot can be found under the dicebag-godot folder.
 
-Copyright 2023, Sam Dunlap (github.com/Sam-Dunlap)
+Copyright 2023, [Sam Dunlap](https://github.com/Sam-Dunlap)
 
 This file is part of Train Mogul.
 
