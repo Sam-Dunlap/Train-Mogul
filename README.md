@@ -22,7 +22,7 @@ If you are interested in this project or any others I am working on, feel free t
 
 Train Mogul uses the [Dicebag-Godot](https://github.com/Yagich/dicebag-godot) asset by [Yagich](https://github.com/Yagich). The license notice for Dicebag-Godot can be found under the dicebag-godot folder.
 
-Copyright 2023, Sam Dunlap (github.com/Sam-Dunlap)
+Copyright 2023, [Sam Dunlap](https://github.com/Sam-Dunlap)
 
 This file is part of Train Mogul.
 
@@ -30,4 +30,4 @@ Train Mogul is free software: you can redistribute it and/or modify it under the
 
 Train Mogul is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with Train Mogul. If not, see <https://www.gnu.org/licenses/>.
