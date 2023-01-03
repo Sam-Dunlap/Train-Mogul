@@ -79,7 +79,7 @@ func determine_destination(playerInstance, initializing = false):
 	#var rdButton = rdScreen.rdButton
 	if initializing:
 		#var home = rdButton.roll(true)
-		playerInstance.home = convert_stop("Reno", TYPE_OBJECT)
+		playerInstance.home = convert_stop("Portland OR", TYPE_OBJECT)
 
 func _connect_player_signals(instance):
 	instance.connect("tree_entered", instance, "_initialized")

@@ -109,8 +109,9 @@ func clean_up_turn():
 	roadsThisTurn = []
 
 func calculate_turn_cost(rtt: Array, minCost: int = 1) -> int:
+	print(rtt)
 	var addCost = false
-	while rtt[0].empty():
+	while rtt.has([]):
 		addCost = true
 		rtt.remove(0)
 	if addCost:
@@ -126,7 +127,7 @@ func search_for_cheapest_path(currentRoad: String, rtt: Array) -> bool:
 	for arr in rtt:
 		if arr.find(currentRoad) == -1:
 			return false
-		rtt[rtt.find(arr)].clear()
+		rtt[rtt.find(arr)].erase(currentRoad)
 	return true
 
 func pay(cost, _paidTo = -1): # paidTo should be used later
