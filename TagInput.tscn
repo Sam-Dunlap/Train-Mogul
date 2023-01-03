@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Silkscreen-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://TagInput.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 2 )
+
+[node name="TagInput" type="HBoxContainer"]
+margin_top = 271.0
+margin_right = 1200.0
+margin_bottom = 328.0
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="GamerTagLabel" type="Label" parent="."]
+margin_left = 160.0
+margin_top = 5.0
+margin_right = 536.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 2 )
+text = "Your Gamer tag:"
+valign = 1
+
+[node name="GamerTag" type="LineEdit" parent="."]
+margin_left = 540.0
+margin_right = 1040.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_stretch_ratio = 3.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+expand_to_text_length = true
+clear_button_enabled = true
+placeholder_text = "peebo bryson"
+
+[connection signal="text_changed" from="GamerTag" to="." method="_set_playerName"]
