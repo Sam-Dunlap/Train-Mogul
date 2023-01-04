@@ -39,8 +39,8 @@ func _ready():
 	draw_roads()
 	color_roads(rrArr)
 	open_init_settings_menu()
-#	open_start_menu()
 	rollButton = $MainCamera/HUD/Roll
+	rollButton.connect("rolled", self, "on_rollButton_rolled")
 
 func open_init_settings_menu():
 	var setupMenu = load("SetupSettingsMenu.tscn").instance()
@@ -86,7 +86,6 @@ func _connect_player_signals(instance):
 	instance.connect("name_chosen", $MainCamera/HUD, "_on_name_chosen")
 	instance.connect("wallet_changed", $MainCamera/HUD, "_on_wallet_changed")
 	instance.connect("destination_rolled", $MainCamera/HUD, "_on_destination_rolled")
-	instance.connect("rolled", $MainCamera/HUD, "_on_player_roll")
 	instance.connect("home_chosen", $MainCamera/HUD, "_on_home_chosen")
 
 func clean_up_start():
@@ -139,11 +138,12 @@ func color_roads(arr):
 
 # fires from roll signal in player. grabs distance and player current stop, then
 # disables roll button and fires make_engine_moves()
-func on_player_roll(dist, currentStop):
+func on_rollButton_rolled(dist):
+	var plCurrentStop = players[whose_turn(turncount)].currentStop
 	rollDistance = dist
 	waitingForMove = true
 	rollButton.disabled = true
-	var currentIdx = convert_stop(currentStop, TYPE_INT)
+	var currentIdx = convert_stop(plCurrentStop, TYPE_INT)
 	enginePaths = make_engine_moves(currentIdx)
 
 # built in astar get_id_path to find shortest path from idx to all other
@@ -221,11 +221,16 @@ func move(path: Array):
 		players[whose_turn(turncount)].clean_up_turn()
 	print(rollDistance)
 
-func turn_finished():
+func on_player_turn_finished():
 	waitingForMove = false
 	rollButton.disabled = false
 	turncount += 1
-
+	var nextPlayer = players[whose_turn(turncount)]
+	nextPlayer.emit_signal("name_chosen", nextPlayer.name)
+	nextPlayer.emit_signal("wallet_changed", nextPlayer.wallet)
+	nextPlayer.emit_signal("home_chosen", nextPlayer.home.name)
+	nextPlayer.emit_signal("destination_rolled", nextPlayer.destination.name)
+	
 func whose_turn(x):
 	return x % players.size()
 

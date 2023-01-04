@@ -29,12 +29,10 @@ func _ready():
 # warning-ignore:return_value_discarded
 	connect('rolled', get_parent(), 'on_player_roll')
 # warning-ignore:return_value_discarded
-	connect("turn_finished", get_parent(), 'turn_finished')
+	connect("turn_finished", get_parent(), 'on_player_turn_finished')
 # warning-ignore:return_value_discarded
 	connect("arrived_at_destination", get_parent(), "player_arrived_at_destination")
 
-func on_roll(distance):
-	emit_signal('rolled', distance, currentStop)
 
 func _initialized():
 	currentStop = home
