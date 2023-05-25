@@ -14,8 +14,6 @@ This is a work in progress, and as such I have not included an executable file t
 
 In order to test the project, you will need to download [Godot](https://godotengine.org), then download this repository and open it from the Godot editor. You can then use F5 to run a debug version of the game.
 
-You can expect a fully playable version of this game within Q1 2023, and a tested and polished release by the end of the year.
-
 If you are interested in this project or any others I am working on, feel free to email me at sdunlapwebdev@gmail.com.
 
 ## License Information
